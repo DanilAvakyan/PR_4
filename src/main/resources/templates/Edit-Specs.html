@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ПРАКТИЧЕСКАЯ РАБОТА №4</title>
+</head>
+<body>
+<div th:each="el : ${specs}" th:object="${specs}">
+  <form method="post">
+    <input type="text" th:value="${el.getCPU()}" th:field="*{CPU}" name="CPU" placeholder="Модель процессора">
+    <div th:if = "${#fields.hasErrors('CPU')}" th:errors="*{CPU}" style="color: red"></div>
+    <br><br>
+    <input type="number" th:value="${el.getRAM()}" th:field="*{RAM}" name="RAM" placeholder="Количество оперативной памяти">
+    <div th:if = "${#fields.hasErrors('RAM')}" th:errors="*{RAM}" style="color: red"></div>
+    <br><br>
+    <input type="number" th:value="${el.getMemorySize()}" th:field="*{MemorySize}" name="MemorySize" placeholder="Свободное место на диске">
+    <div th:if = "${#fields.hasErrors('MemorySize')}" th:errors="*{MemorySize}" style="color: red"></div>
+    <br><br>
+    <input type="text" th:value="${el.getGPU()}" th:field="*{GPU}" name="GPU" placeholder="Модель видеокарты">
+    <div th:if = "${#fields.hasErrors('GPU')}" th:errors="*{GPU}" style="color: red"></div>
+    <br><br>
+    <input type="text" th:value="${el.getOS()}" th:field="*{OS}" name="OS" placeholder="Операционная система">
+    <div th:if = "${#fields.hasErrors('OS')}" th:errors="*{OS}" style="color: red"></div>
+    <br><br>
+    <button type="submit"> Изменить тех. требование</button>
+  </form>
+</div>
+</body>
+</html>

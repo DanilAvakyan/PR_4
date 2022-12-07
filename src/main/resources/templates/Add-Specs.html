@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ПРАКТИЧЕСКАЯ РАБОТА №4</title>
+</head>
+<body>
+<h2>Добавление тех. требования</h2>
+
+<form th:action = "${'/Add/Specs'}" th:object="${specifications}" method="post">
+    <input type="text" th:field="*{CPU}" name="CPU" placeholder="Модель процессора">
+    <div th:if = "${#fields.hasErrors('CPU')}" th:errors="*{CPU}" style="color: red"></div>
+    <br><br>
+    <input type="number" th:field="*{RAM}" name="RAM" placeholder="Количество оперативной памяти">
+    <div th:if = "${#fields.hasErrors('RAM')}" th:errors="*{RAM}" style="color: red"></div>
+    <br><br>
+    <input type="number" th:field="*{MemorySize}" name="MemorySize" placeholder="Свободное место на диске">
+    <div th:if = "${#fields.hasErrors('MemorySize')}" th:errors="*{MemorySize}" style="color: red"></div>
+    <br><br>
+    <input type="text" th:field="*{GPU}" name="GPU" placeholder="Модель видеокарты">
+    <div th:if = "${#fields.hasErrors('GPU')}" th:errors="*{GPU}" style="color: red"></div>
+    <br><br>
+    <input type="text" th:field="*{OS}" name="OS" placeholder="Операционная система">
+    <div th:if = "${#fields.hasErrors('OS')}" th:errors="*{OS}" style="color: red"></div>
+    <br><br>
+    <button type="submit"> Добавить тех. требование</button>
+</form>
+</body>
+</html>
